@@ -83,6 +83,7 @@ module SingleCase =
 (** Extract the value via pattern matching: *)
     let city = City "Houston, TX"
     let cityName (City name) = name
+(*** define-value: result ***)
     let result = cityName city
 
 (** Value of result: *)
@@ -597,6 +598,8 @@ module ExtendedExample =
 *)
 
 (*** include: lookup-locations ***)
+(*** include: lookup-houston ***)
+(*** include-it: lookup-houston-result ***)
 
 (**
 
@@ -748,6 +751,9 @@ type Location =
             invalidArg "lng"
                 "Longitude must be within the range -180 to 180."
         else { latitude = lat; longitude = lng }
+(*** hide ***)
+    override this.ToString() =
+        sprintf "lat %f, lng %f" this.Latitude this.Longitude
 
 (*** define: place ***)
 type Place = { Name : City; Location : Location option }
@@ -817,8 +823,12 @@ let lookupLocation city =
 let lookupLocations (start, dest) =
     lookupLocation start, lookupLocation dest
 
-(*** hide ***)
+(*** define: lookup-houston ***)
 lookupLocation (City "Houston, TX")
+(*** define-output: lookup-houston-result ***)
+lookupLocation (City "Houston, TX")
+
+(*** hide ***)
 lookupLocation (City "Conroe, TX")
 lookupLocation (City "The Woodlands, TX")
 lookupLocation (City "San Mateo, CA")
