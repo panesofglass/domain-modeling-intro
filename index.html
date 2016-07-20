@@ -108,7 +108,7 @@
 <div class="tip" id="fs60">static member City.Create : name:string -&gt; City<br /><br />Full name: Index.City.Create</div>
 <div class="tip" id="fs61">val invalidArg : argumentName:string -&gt; message:string -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.Operators.invalidArg</div>
 <div class="tip" id="fs62">val x : string</div>
-<div class="tip" id="fs63">type Location =<br />&#160;&#160;internal {latitude: float&lt;degLat&gt;;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;longitude: float&lt;degLng&gt;;}<br />&#160;&#160;member Latitude : float&lt;degLat&gt;<br />&#160;&#160;member Longitude : float&lt;degLng&gt;<br />&#160;&#160;static member Create : lat:float&lt;degLat&gt; * lng:float&lt;degLng&gt; -&gt; Location<br /><br />Full name: Index.Location</div>
+<div class="tip" id="fs63">type Location =<br />&#160;&#160;internal {latitude: float&lt;degLat&gt;;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;longitude: float&lt;degLng&gt;;}<br />&#160;&#160;override ToString : unit -&gt; string<br />&#160;&#160;member Latitude : float&lt;degLat&gt;<br />&#160;&#160;member Longitude : float&lt;degLng&gt;<br />&#160;&#160;static member Create : lat:float&lt;degLat&gt; * lng:float&lt;degLng&gt; -&gt; Location<br /><br />Full name: Index.Location</div>
 <div class="tip" id="fs64">Location.latitude: float&lt;degLat&gt;</div>
 <div class="tip" id="fs65">Location.longitude: float&lt;degLng&gt;</div>
 <div class="tip" id="fs66">val this : Location</div>
@@ -117,91 +117,92 @@
 <div class="tip" id="fs69">static member Location.Create : lat:float&lt;degLat&gt; * lng:float&lt;degLng&gt; -&gt; Location<br /><br />Full name: Index.Location.Create</div>
 <div class="tip" id="fs70">val lat : float&lt;degLat&gt;</div>
 <div class="tip" id="fs71">val lng : float&lt;degLng&gt;</div>
-<div class="tip" id="fs72">type Place =<br />&#160;&#160;{Name: City;<br />&#160;&#160;&#160;Location: Location option;}<br /><br />Full name: Index.Place</div>
-<div class="tip" id="fs73">Multiple items<br />Place.Location: Location option<br /><br />--------------------<br />type Location =<br />&#160;&#160;internal {latitude: float&lt;degLat&gt;;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;longitude: float&lt;degLng&gt;;}<br />&#160;&#160;member Latitude : float&lt;degLat&gt;<br />&#160;&#160;member Longitude : float&lt;degLng&gt;<br />&#160;&#160;static member Create : lat:float&lt;degLat&gt; * lng:float&lt;degLng&gt; -&gt; Location<br /><br />Full name: Index.Location</div>
-<div class="tip" id="fs74">[&lt;Measure&gt;]<br />type m<br /><br />Full name: Index.m</div>
-<div class="tip" id="fs75">[&lt;Measure&gt;]<br />type ft<br /><br />Full name: Index.ft</div>
-<div class="tip" id="fs76">type LookupLocations = City * City -&gt; Place * Place<br /><br />Full name: Index.LookupLocations</div>
-<div class="tip" id="fs77">type TryFindDistance = Place * Place -&gt; float&lt;m&gt; option<br /><br />Full name: Index.TryFindDistance</div>
-<div class="tip" id="fs78">type MetersToFeet = float&lt;m&gt; -&gt; float&lt;ft&gt;<br /><br />Full name: Index.MetersToFeet</div>
-<div class="tip" id="fs79">type Show = Place * Place * float&lt;ft&gt; option -&gt; string<br /><br />Full name: Index.Show</div>
-<div class="tip" id="fs80">namespace System</div>
-<div class="tip" id="fs81">[&lt;Measure&gt;]<br />type rad<br /><br />Full name: Index.GeoCoordinate.rad</div>
-<div class="tip" id="fs82">val private degreesToRadians : value:float&lt;&#39;u&gt; -&gt; float&lt;&#39;u&gt;<br /><br />Full name: Index.GeoCoordinate.degreesToRadians</div>
-<div class="tip" id="fs83">val value : float&lt;&#39;u&gt;</div>
-<div class="tip" id="fs84">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.float<br /><br />--------------------<br />type float = Double<br /><br />Full name: Microsoft.FSharp.Core.float<br /><br />--------------------<br />type float&lt;&#39;Measure&gt; = float<br /><br />Full name: Microsoft.FSharp.Core.float&lt;_&gt;</div>
-<div class="tip" id="fs85">type Math =<br />&#160;&#160;static val PI : float<br />&#160;&#160;static val E : float<br />&#160;&#160;static member Abs : value:sbyte -&gt; sbyte + 6 overloads<br />&#160;&#160;static member Acos : d:float -&gt; float<br />&#160;&#160;static member Asin : d:float -&gt; float<br />&#160;&#160;static member Atan : d:float -&gt; float<br />&#160;&#160;static member Atan2 : y:float * x:float -&gt; float<br />&#160;&#160;static member BigMul : a:int * b:int -&gt; int64<br />&#160;&#160;static member Ceiling : d:decimal -&gt; decimal + 1 overload<br />&#160;&#160;static member Cos : d:float -&gt; float<br />&#160;&#160;...<br /><br />Full name: System.Math</div>
-<div class="tip" id="fs86">field Math.PI = 3.14159265359</div>
-<div class="tip" id="fs87">val private degLatToRad : lat:float&lt;degLat&gt; -&gt; float&lt;rad&gt;<br /><br />Full name: Index.GeoCoordinate.degLatToRad</div>
-<div class="tip" id="fs88">val private degLngToRad : lng:float&lt;degLng&gt; -&gt; float&lt;rad&gt;<br /><br />Full name: Index.GeoCoordinate.degLngToRad</div>
-<div class="tip" id="fs89">val private haversine : theta:float&lt;rad&gt; -&gt; float<br /><br />Full name: Index.GeoCoordinate.haversine</div>
-<div class="tip" id="fs90">val theta : float&lt;rad&gt;</div>
-<div class="tip" id="fs91">Math.Cos(d: float) : float</div>
-<div class="tip" id="fs92">type private Pos =<br />&#160;&#160;{phi: float&lt;rad&gt;;<br />&#160;&#160;&#160;psi: float&lt;rad&gt;;}<br /><br />Full name: Index.GeoCoordinate.Pos</div>
-<div class="tip" id="fs93">Pos.phi: float&lt;rad&gt;</div>
-<div class="tip" id="fs94">Pos.psi: float&lt;rad&gt;</div>
-<div class="tip" id="fs95">val private toPos : a:Location -&gt; Pos<br /><br />Full name: Index.GeoCoordinate.toPos</div>
-<div class="tip" id="fs96">val a : Location</div>
-<div class="tip" id="fs97">property Location.Latitude: float&lt;degLat&gt;</div>
-<div class="tip" id="fs98">property Location.Longitude: float&lt;degLng&gt;</div>
-<div class="tip" id="fs99">val private sub : a:Pos -&gt; b:Pos -&gt; Pos<br /><br />Full name: Index.GeoCoordinate.sub</div>
-<div class="tip" id="fs100">val a : Pos</div>
-<div class="tip" id="fs101">val b : Pos</div>
-<div class="tip" id="fs102">val private earthRadius : float&lt;m&gt;<br /><br />Full name: Index.GeoCoordinate.earthRadius</div>
-<div class="tip" id="fs103">val distance : a:Location -&gt; b:Location -&gt; float&lt;m&gt;<br /><br />Full name: Index.GeoCoordinate.distance</div>
-<div class="tip" id="fs104">val b : Location</div>
-<div class="tip" id="fs105">val h : float</div>
-<div class="tip" id="fs106">Math.Asin(d: float) : float</div>
-<div class="tip" id="fs107">Math.Sqrt(d: float) : float</div>
-<div class="tip" id="fs108">val locations : Place list<br /><br />Full name: Index.locations</div>
-<div class="tip" id="fs109">type &#39;T list = List&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Collections.list&lt;_&gt;</div>
-<div class="tip" id="fs110">static member Location.Create : lat:float&lt;degLat&gt; * lng:float&lt;degLng&gt; -&gt; Location</div>
-<div class="tip" id="fs111">val lookupLocation : city:City -&gt; Place<br /><br />Full name: Index.lookupLocation</div>
-<div class="tip" id="fs112">val city : City</div>
-<div class="tip" id="fs113">Multiple items<br />module List<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List&lt;&#39;T&gt; =<br />&#160;&#160;| ( [] )<br />&#160;&#160;| ( :: ) of Head: &#39;T * Tail: &#39;T list<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;member GetSlice : startIndex:int option * endIndex:int option -&gt; &#39;T list<br />&#160;&#160;member Head : &#39;T<br />&#160;&#160;member IsEmpty : bool<br />&#160;&#160;member Item : index:int -&gt; &#39;T with get<br />&#160;&#160;member Length : int<br />&#160;&#160;member Tail : &#39;T list<br />&#160;&#160;static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list<br />&#160;&#160;static member Empty : &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.List&lt;_&gt;</div>
-<div class="tip" id="fs114">val find : predicate:(&#39;T -&gt; bool) -&gt; list:&#39;T list -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Collections.List.find</div>
-<div class="tip" id="fs115">val x : Place</div>
-<div class="tip" id="fs116">val lookupLocations : start:City * dest:City -&gt; Place * Place<br /><br />Full name: Index.lookupLocations</div>
-<div class="tip" id="fs117">val start : City</div>
-<div class="tip" id="fs118">val dest : City</div>
-<div class="tip" id="fs119">val findDistance : start:Location * dest:Location -&gt; float&lt;m&gt;<br /><br />Full name: Index.findDistance</div>
-<div class="tip" id="fs120">val start : Location</div>
-<div class="tip" id="fs121">val dest : Location</div>
-<div class="tip" id="fs122">module GeoCoordinate<br /><br />from Index</div>
-<div class="tip" id="fs123">val tryFindDistance : Place * Place -&gt; float&lt;m&gt; option<br /><br />Full name: Index.tryFindDistance</div>
-<div class="tip" id="fs124">val metersToFeet : input:float&lt;m&gt; -&gt; float&lt;ft&gt;<br /><br />Full name: Index.metersToFeet</div>
-<div class="tip" id="fs125">val input : float&lt;m&gt;</div>
-<div class="tip" id="fs126">val workflow : (City * City -&gt; float&lt;ft&gt; option)<br /><br />Full name: Index.workflow</div>
-<div class="tip" id="fs127">module Option<br /><br />from Microsoft.FSharp.Core</div>
-<div class="tip" id="fs128">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; option:&#39;T option -&gt; &#39;U option<br /><br />Full name: Microsoft.FSharp.Core.Option.map</div>
-<div class="tip" id="fs129">val serializePlace : _arg1:Place -&gt; string<br /><br />Full name: Index.serializePlace</div>
-<div class="tip" id="fs130">val loc : Location</div>
-<div class="tip" id="fs131">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.sprintf</div>
-<div class="tip" id="fs132">val serializeResult : place1:Place -&gt; place2:Place -&gt; distance:float&lt;ft&gt; option -&gt; string<br /><br />Full name: Index.serializeResult</div>
-<div class="tip" id="fs133">val place1 : Place</div>
-<div class="tip" id="fs134">val place2 : Place</div>
-<div class="tip" id="fs135">val distance : float&lt;ft&gt; option</div>
-<div class="tip" id="fs136">val place1&#39; : string</div>
-<div class="tip" id="fs137">val place2&#39; : string</div>
-<div class="tip" id="fs138">val d : float&lt;ft&gt;</div>
-<div class="tip" id="fs139">val receiveInput : start:City * dest:City -&gt; string<br /><br />Full name: Index.receiveInput</div>
-<div class="tip" id="fs140">val start&#39; : Place</div>
-<div class="tip" id="fs141">val dest&#39; : Place</div>
-<div class="tip" id="fs142">val calculateDistance : start:Place * dest:Place -&gt; string<br /><br />Full name: Index.calculateDistance</div>
-<div class="tip" id="fs143">val start : Place</div>
-<div class="tip" id="fs144">val dest : Place</div>
-<div class="tip" id="fs145">val distance : float&lt;m&gt;</div>
-<div class="tip" id="fs146">val showPlacesWithDistanceInMeters : start:Place * dest:Place * distance:float&lt;m&gt; -&gt; string<br /><br />Full name: Index.showPlacesWithDistanceInMeters</div>
-<div class="tip" id="fs147">val showPlaces : start:Place * dest:Place * distance:float&lt;ft&gt; option -&gt; string<br /><br />Full name: Index.showPlaces</div>
-<div class="tip" id="fs148">type Stage =<br />&#160;&#160;| AwaitingInput<br />&#160;&#160;| InputReceived of start: City * dest: City<br />&#160;&#160;| Located of start: Place * dest: Place<br />&#160;&#160;| Calculated of Place * Place * float&lt;m&gt; option<br />&#160;&#160;| Show of Place * Place * float&lt;ft&gt; option<br /><br />Full name: Index.Stage</div>
-<div class="tip" id="fs149">union case Stage.AwaitingInput: Stage</div>
-<div class="tip" id="fs150">union case Stage.InputReceived: start: City * dest: City -&gt; Stage</div>
-<div class="tip" id="fs151">union case Stage.Located: start: Place * dest: Place -&gt; Stage</div>
-<div class="tip" id="fs152">union case Stage.Calculated: Place * Place * float&lt;m&gt; option -&gt; Stage</div>
-<div class="tip" id="fs153">Multiple items<br />union case Stage.Show: Place * Place * float&lt;ft&gt; option -&gt; Stage<br /><br />--------------------<br />type Show = Place * Place * float&lt;ft&gt; option -&gt; string<br /><br />Full name: Index.Show</div>
-<div class="tip" id="fs154">type RunWorkflow = Stage -&gt; string<br /><br />Full name: Index.RunWorkflow</div>
-<div class="tip" id="fs155">val runWorkflow : _arg1:Stage -&gt; string<br /><br />Full name: Index.runWorkflow</div>
-<div class="tip" id="fs156">val distance : float&lt;m&gt; option</div>
+<div class="tip" id="fs72">override Location.ToString : unit -&gt; string<br /><br />Full name: Index.Location.ToString</div>
+<div class="tip" id="fs73">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.sprintf</div>
+<div class="tip" id="fs74">property Location.Latitude: float&lt;degLat&gt;</div>
+<div class="tip" id="fs75">property Location.Longitude: float&lt;degLng&gt;</div>
+<div class="tip" id="fs76">type Place =<br />&#160;&#160;{Name: City;<br />&#160;&#160;&#160;Location: Location option;}<br /><br />Full name: Index.Place</div>
+<div class="tip" id="fs77">Multiple items<br />Place.Location: Location option<br /><br />--------------------<br />type Location =<br />&#160;&#160;internal {latitude: float&lt;degLat&gt;;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;longitude: float&lt;degLng&gt;;}<br />&#160;&#160;override ToString : unit -&gt; string<br />&#160;&#160;member Latitude : float&lt;degLat&gt;<br />&#160;&#160;member Longitude : float&lt;degLng&gt;<br />&#160;&#160;static member Create : lat:float&lt;degLat&gt; * lng:float&lt;degLng&gt; -&gt; Location<br /><br />Full name: Index.Location</div>
+<div class="tip" id="fs78">[&lt;Measure&gt;]<br />type m<br /><br />Full name: Index.m</div>
+<div class="tip" id="fs79">[&lt;Measure&gt;]<br />type ft<br /><br />Full name: Index.ft</div>
+<div class="tip" id="fs80">type LookupLocations = City * City -&gt; Place * Place<br /><br />Full name: Index.LookupLocations</div>
+<div class="tip" id="fs81">type TryFindDistance = Place * Place -&gt; float&lt;m&gt; option<br /><br />Full name: Index.TryFindDistance</div>
+<div class="tip" id="fs82">type MetersToFeet = float&lt;m&gt; -&gt; float&lt;ft&gt;<br /><br />Full name: Index.MetersToFeet</div>
+<div class="tip" id="fs83">type Show = Place * Place * float&lt;ft&gt; option -&gt; string<br /><br />Full name: Index.Show</div>
+<div class="tip" id="fs84">namespace System</div>
+<div class="tip" id="fs85">[&lt;Measure&gt;]<br />type rad<br /><br />Full name: Index.GeoCoordinate.rad</div>
+<div class="tip" id="fs86">val private degreesToRadians : value:float&lt;&#39;u&gt; -&gt; float&lt;&#39;u&gt;<br /><br />Full name: Index.GeoCoordinate.degreesToRadians</div>
+<div class="tip" id="fs87">val value : float&lt;&#39;u&gt;</div>
+<div class="tip" id="fs88">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.float<br /><br />--------------------<br />type float = Double<br /><br />Full name: Microsoft.FSharp.Core.float<br /><br />--------------------<br />type float&lt;&#39;Measure&gt; = float<br /><br />Full name: Microsoft.FSharp.Core.float&lt;_&gt;</div>
+<div class="tip" id="fs89">type Math =<br />&#160;&#160;static val PI : float<br />&#160;&#160;static val E : float<br />&#160;&#160;static member Abs : value:sbyte -&gt; sbyte + 6 overloads<br />&#160;&#160;static member Acos : d:float -&gt; float<br />&#160;&#160;static member Asin : d:float -&gt; float<br />&#160;&#160;static member Atan : d:float -&gt; float<br />&#160;&#160;static member Atan2 : y:float * x:float -&gt; float<br />&#160;&#160;static member BigMul : a:int * b:int -&gt; int64<br />&#160;&#160;static member Ceiling : d:decimal -&gt; decimal + 1 overload<br />&#160;&#160;static member Cos : d:float -&gt; float<br />&#160;&#160;...<br /><br />Full name: System.Math</div>
+<div class="tip" id="fs90">field Math.PI = 3.14159265359</div>
+<div class="tip" id="fs91">val private degLatToRad : lat:float&lt;degLat&gt; -&gt; float&lt;rad&gt;<br /><br />Full name: Index.GeoCoordinate.degLatToRad</div>
+<div class="tip" id="fs92">val private degLngToRad : lng:float&lt;degLng&gt; -&gt; float&lt;rad&gt;<br /><br />Full name: Index.GeoCoordinate.degLngToRad</div>
+<div class="tip" id="fs93">val private haversine : theta:float&lt;rad&gt; -&gt; float<br /><br />Full name: Index.GeoCoordinate.haversine</div>
+<div class="tip" id="fs94">val theta : float&lt;rad&gt;</div>
+<div class="tip" id="fs95">Math.Cos(d: float) : float</div>
+<div class="tip" id="fs96">type private Pos =<br />&#160;&#160;{phi: float&lt;rad&gt;;<br />&#160;&#160;&#160;psi: float&lt;rad&gt;;}<br /><br />Full name: Index.GeoCoordinate.Pos</div>
+<div class="tip" id="fs97">Pos.phi: float&lt;rad&gt;</div>
+<div class="tip" id="fs98">Pos.psi: float&lt;rad&gt;</div>
+<div class="tip" id="fs99">val private toPos : a:Location -&gt; Pos<br /><br />Full name: Index.GeoCoordinate.toPos</div>
+<div class="tip" id="fs100">val a : Location</div>
+<div class="tip" id="fs101">val private sub : a:Pos -&gt; b:Pos -&gt; Pos<br /><br />Full name: Index.GeoCoordinate.sub</div>
+<div class="tip" id="fs102">val a : Pos</div>
+<div class="tip" id="fs103">val b : Pos</div>
+<div class="tip" id="fs104">val private earthRadius : float&lt;m&gt;<br /><br />Full name: Index.GeoCoordinate.earthRadius</div>
+<div class="tip" id="fs105">val distance : a:Location -&gt; b:Location -&gt; float&lt;m&gt;<br /><br />Full name: Index.GeoCoordinate.distance</div>
+<div class="tip" id="fs106">val b : Location</div>
+<div class="tip" id="fs107">val h : float</div>
+<div class="tip" id="fs108">Math.Asin(d: float) : float</div>
+<div class="tip" id="fs109">Math.Sqrt(d: float) : float</div>
+<div class="tip" id="fs110">val locations : Place list<br /><br />Full name: Index.locations</div>
+<div class="tip" id="fs111">type &#39;T list = List&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Collections.list&lt;_&gt;</div>
+<div class="tip" id="fs112">static member Location.Create : lat:float&lt;degLat&gt; * lng:float&lt;degLng&gt; -&gt; Location</div>
+<div class="tip" id="fs113">val lookupLocation : city:City -&gt; Place<br /><br />Full name: Index.lookupLocation</div>
+<div class="tip" id="fs114">val city : City</div>
+<div class="tip" id="fs115">Multiple items<br />module List<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List&lt;&#39;T&gt; =<br />&#160;&#160;| ( [] )<br />&#160;&#160;| ( :: ) of Head: &#39;T * Tail: &#39;T list<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;member GetSlice : startIndex:int option * endIndex:int option -&gt; &#39;T list<br />&#160;&#160;member Head : &#39;T<br />&#160;&#160;member IsEmpty : bool<br />&#160;&#160;member Item : index:int -&gt; &#39;T with get<br />&#160;&#160;member Length : int<br />&#160;&#160;member Tail : &#39;T list<br />&#160;&#160;static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list<br />&#160;&#160;static member Empty : &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.List&lt;_&gt;</div>
+<div class="tip" id="fs116">val find : predicate:(&#39;T -&gt; bool) -&gt; list:&#39;T list -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Collections.List.find</div>
+<div class="tip" id="fs117">val x : Place</div>
+<div class="tip" id="fs118">val lookupLocations : start:City * dest:City -&gt; Place * Place<br /><br />Full name: Index.lookupLocations</div>
+<div class="tip" id="fs119">val start : City</div>
+<div class="tip" id="fs120">val dest : City</div>
+<div class="tip" id="fs121">val findDistance : start:Location * dest:Location -&gt; float&lt;m&gt;<br /><br />Full name: Index.findDistance</div>
+<div class="tip" id="fs122">val start : Location</div>
+<div class="tip" id="fs123">val dest : Location</div>
+<div class="tip" id="fs124">module GeoCoordinate<br /><br />from Index</div>
+<div class="tip" id="fs125">val tryFindDistance : Place * Place -&gt; float&lt;m&gt; option<br /><br />Full name: Index.tryFindDistance</div>
+<div class="tip" id="fs126">val metersToFeet : input:float&lt;m&gt; -&gt; float&lt;ft&gt;<br /><br />Full name: Index.metersToFeet</div>
+<div class="tip" id="fs127">val input : float&lt;m&gt;</div>
+<div class="tip" id="fs128">val workflow : (City * City -&gt; float&lt;ft&gt; option)<br /><br />Full name: Index.workflow</div>
+<div class="tip" id="fs129">module Option<br /><br />from Microsoft.FSharp.Core</div>
+<div class="tip" id="fs130">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; option:&#39;T option -&gt; &#39;U option<br /><br />Full name: Microsoft.FSharp.Core.Option.map</div>
+<div class="tip" id="fs131">val serializePlace : _arg1:Place -&gt; string<br /><br />Full name: Index.serializePlace</div>
+<div class="tip" id="fs132">val loc : Location</div>
+<div class="tip" id="fs133">val serializeResult : place1:Place -&gt; place2:Place -&gt; distance:float&lt;ft&gt; option -&gt; string<br /><br />Full name: Index.serializeResult</div>
+<div class="tip" id="fs134">val place1 : Place</div>
+<div class="tip" id="fs135">val place2 : Place</div>
+<div class="tip" id="fs136">val distance : float&lt;ft&gt; option</div>
+<div class="tip" id="fs137">val place1&#39; : string</div>
+<div class="tip" id="fs138">val place2&#39; : string</div>
+<div class="tip" id="fs139">val d : float&lt;ft&gt;</div>
+<div class="tip" id="fs140">val receiveInput : start:City * dest:City -&gt; string<br /><br />Full name: Index.receiveInput</div>
+<div class="tip" id="fs141">val start&#39; : Place</div>
+<div class="tip" id="fs142">val dest&#39; : Place</div>
+<div class="tip" id="fs143">val calculateDistance : start:Place * dest:Place -&gt; string<br /><br />Full name: Index.calculateDistance</div>
+<div class="tip" id="fs144">val start : Place</div>
+<div class="tip" id="fs145">val dest : Place</div>
+<div class="tip" id="fs146">val distance : float&lt;m&gt;</div>
+<div class="tip" id="fs147">val showPlacesWithDistanceInMeters : start:Place * dest:Place * distance:float&lt;m&gt; -&gt; string<br /><br />Full name: Index.showPlacesWithDistanceInMeters</div>
+<div class="tip" id="fs148">val showPlaces : start:Place * dest:Place * distance:float&lt;ft&gt; option -&gt; string<br /><br />Full name: Index.showPlaces</div>
+<div class="tip" id="fs149">type Stage =<br />&#160;&#160;| AwaitingInput<br />&#160;&#160;| InputReceived of start: City * dest: City<br />&#160;&#160;| Located of start: Place * dest: Place<br />&#160;&#160;| Calculated of Place * Place * float&lt;m&gt; option<br />&#160;&#160;| Show of Place * Place * float&lt;ft&gt; option<br /><br />Full name: Index.Stage</div>
+<div class="tip" id="fs150">union case Stage.AwaitingInput: Stage</div>
+<div class="tip" id="fs151">union case Stage.InputReceived: start: City * dest: City -&gt; Stage</div>
+<div class="tip" id="fs152">union case Stage.Located: start: Place * dest: Place -&gt; Stage</div>
+<div class="tip" id="fs153">union case Stage.Calculated: Place * Place * float&lt;m&gt; option -&gt; Stage</div>
+<div class="tip" id="fs154">Multiple items<br />union case Stage.Show: Place * Place * float&lt;ft&gt; option -&gt; Stage<br /><br />--------------------<br />type Show = Place * Place * float&lt;ft&gt; option -&gt; string<br /><br />Full name: Index.Show</div>
+<div class="tip" id="fs155">type RunWorkflow = Stage -&gt; string<br /><br />Full name: Index.RunWorkflow</div>
+<div class="tip" id="fs156">val runWorkflow : _arg1:Stage -&gt; string<br /><br />Full name: Index.runWorkflow</div>
+<div class="tip" id="fs157">val distance : float&lt;m&gt; option</div>
 
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
@@ -226,10 +227,10 @@
 <span class="l">3: </span>
 <span class="l">4: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">(<span onmouseout="hideTip(event, 'fs59', 493)" onmouseover="showTip(event, 'fs59', 493)" class="p">City</span> <span class="s">&quot;Houston, TX&quot;</span>, <span onmouseout="hideTip(event, 'fs59', 494)" onmouseover="showTip(event, 'fs59', 494)" class="p">City</span> <span class="s">&quot;San Mateo, CA&quot;</span>)
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs116', 495)" onmouseover="showTip(event, 'fs116', 495)" class="f">lookupLocations</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs123', 496)" onmouseover="showTip(event, 'fs123', 496)" class="f">tryFindDistance</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs127', 497)" onmouseover="showTip(event, 'fs127', 497)" class="t">Option</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs128', 498)" onmouseover="showTip(event, 'fs128', 498)" class="f">map</span> <span onmouseout="hideTip(event, 'fs124', 499)" onmouseover="showTip(event, 'fs124', 499)" class="f">metersToFeet</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">(<span onmouseout="hideTip(event, 'fs59', 502)" onmouseover="showTip(event, 'fs59', 502)" class="p">City</span> <span class="s">&quot;Houston, TX&quot;</span>, <span onmouseout="hideTip(event, 'fs59', 503)" onmouseover="showTip(event, 'fs59', 503)" class="p">City</span> <span class="s">&quot;San Mateo, CA&quot;</span>)
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs118', 504)" onmouseover="showTip(event, 'fs118', 504)" class="f">lookupLocations</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs125', 505)" onmouseover="showTip(event, 'fs125', 505)" class="f">tryFindDistance</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs129', 506)" onmouseover="showTip(event, 'fs129', 506)" class="t">Option</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs130', 507)" onmouseover="showTip(event, 'fs130', 507)" class="f">map</span> <span onmouseout="hideTip(event, 'fs126', 508)" onmouseover="showTip(event, 'fs126', 508)" class="f">metersToFeet</span>
 </code></pre></td>
 </tr>
 </table>
@@ -284,11 +285,15 @@ however, you don't get any type safety.<br/>
 <p>Extract the value via pattern matching:</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
-<span class="l">3: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="i">city</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs3', 7)" onmouseover="showTip(event, 'fs3', 7)" class="p">City</span> <span class="s">&quot;Houston, TX&quot;</span>
     <span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 8)" onmouseover="showTip(event, 'fs5', 8)" class="f">cityName</span> (<span onmouseout="hideTip(event, 'fs3', 9)" onmouseover="showTip(event, 'fs3', 9)" class="p">City</span> <span onmouseout="hideTip(event, 'fs6', 10)" onmouseover="showTip(event, 'fs6', 10)" class="i">name</span>) <span class="o">=</span> <span class="i">name</span>
-    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs7', 11)" onmouseover="showTip(event, 'fs7', 11)" class="i">result</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs5', 12)" onmouseover="showTip(event, 'fs5', 12)" class="f">cityName</span> <span onmouseout="hideTip(event, 'fs4', 13)" onmouseover="showTip(event, 'fs4', 13)" class="i">city</span>
+</code></pre></td>
+</tr>
+</table>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs7', 11)" onmouseover="showTip(event, 'fs7', 11)" class="i">result</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs5', 12)" onmouseover="showTip(event, 'fs5', 12)" class="f">cityName</span> <span onmouseout="hideTip(event, 'fs4', 13)" onmouseover="showTip(event, 'fs4', 13)" class="i">city</span>
 </code></pre></td>
 </tr>
 </table>
@@ -889,7 +894,7 @@ retain immutability and add validation.<br/>
 <h2>Revisiting <code>Place</code></h2>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs72', 169)" onmouseover="showTip(event, 'fs72', 169)" class="t">Place</span> <span class="o">=</span> { <span onmouseout="hideTip(event, 'fs57', 170)" onmouseover="showTip(event, 'fs57', 170)" class="i">Name</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs59', 171)" onmouseover="showTip(event, 'fs59', 171)" class="t">City</span>; <span onmouseout="hideTip(event, 'fs73', 172)" onmouseover="showTip(event, 'fs73', 172)" class="i">Location</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs73', 173)" onmouseover="showTip(event, 'fs73', 173)" class="t">Location</span> <span onmouseout="hideTip(event, 'fs21', 174)" onmouseover="showTip(event, 'fs21', 174)" class="t">option</span> }
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs76', 176)" onmouseover="showTip(event, 'fs76', 176)" class="t">Place</span> <span class="o">=</span> { <span onmouseout="hideTip(event, 'fs57', 177)" onmouseover="showTip(event, 'fs57', 177)" class="i">Name</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs59', 178)" onmouseover="showTip(event, 'fs59', 178)" class="t">City</span>; <span onmouseout="hideTip(event, 'fs77', 179)" onmouseover="showTip(event, 'fs77', 179)" class="i">Location</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs77', 180)" onmouseover="showTip(event, 'fs77', 180)" class="t">Location</span> <span onmouseout="hideTip(event, 'fs21', 181)" onmouseover="showTip(event, 'fs21', 181)" class="t">option</span> }
 </code></pre></td>
 </tr>
 </table>
@@ -944,10 +949,10 @@ in case you wish to study these further.<br/>
 <span class="l">3: </span>
 <span class="l">4: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">(<span onmouseout="hideTip(event, 'fs59', 493)" onmouseover="showTip(event, 'fs59', 493)" class="p">City</span> <span class="s">&quot;Houston, TX&quot;</span>, <span onmouseout="hideTip(event, 'fs59', 494)" onmouseover="showTip(event, 'fs59', 494)" class="p">City</span> <span class="s">&quot;San Mateo, CA&quot;</span>)
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs116', 495)" onmouseover="showTip(event, 'fs116', 495)" class="f">lookupLocations</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs123', 496)" onmouseover="showTip(event, 'fs123', 496)" class="f">tryFindDistance</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs127', 497)" onmouseover="showTip(event, 'fs127', 497)" class="t">Option</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs128', 498)" onmouseover="showTip(event, 'fs128', 498)" class="f">map</span> <span onmouseout="hideTip(event, 'fs124', 499)" onmouseover="showTip(event, 'fs124', 499)" class="f">metersToFeet</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">(<span onmouseout="hideTip(event, 'fs59', 502)" onmouseover="showTip(event, 'fs59', 502)" class="p">City</span> <span class="s">&quot;Houston, TX&quot;</span>, <span onmouseout="hideTip(event, 'fs59', 503)" onmouseover="showTip(event, 'fs59', 503)" class="p">City</span> <span class="s">&quot;San Mateo, CA&quot;</span>)
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs118', 504)" onmouseover="showTip(event, 'fs118', 504)" class="f">lookupLocations</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs125', 505)" onmouseover="showTip(event, 'fs125', 505)" class="f">tryFindDistance</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs129', 506)" onmouseover="showTip(event, 'fs129', 506)" class="t">Option</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs130', 507)" onmouseover="showTip(event, 'fs130', 507)" class="f">map</span> <span onmouseout="hideTip(event, 'fs126', 508)" onmouseover="showTip(event, 'fs126', 508)" class="f">metersToFeet</span>
 </code></pre></td>
 </tr>
 </table>
@@ -975,13 +980,13 @@ and finally calculate the distance (in feet).<br/>
 <span class="l">6: </span>
 <span class="l">7: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs76', 179)" onmouseover="showTip(event, 'fs76', 179)" class="t">LookupLocations</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs59', 180)" onmouseover="showTip(event, 'fs59', 180)" class="t">City</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs59', 181)" onmouseover="showTip(event, 'fs59', 181)" class="t">City</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs72', 182)" onmouseover="showTip(event, 'fs72', 182)" class="t">Place</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs72', 183)" onmouseover="showTip(event, 'fs72', 183)" class="t">Place</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs80', 186)" onmouseover="showTip(event, 'fs80', 186)" class="t">LookupLocations</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs59', 187)" onmouseover="showTip(event, 'fs59', 187)" class="t">City</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs59', 188)" onmouseover="showTip(event, 'fs59', 188)" class="t">City</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs76', 189)" onmouseover="showTip(event, 'fs76', 189)" class="t">Place</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs76', 190)" onmouseover="showTip(event, 'fs76', 190)" class="t">Place</span>
 
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs77', 184)" onmouseover="showTip(event, 'fs77', 184)" class="t">TryFindDistance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs72', 185)" onmouseover="showTip(event, 'fs72', 185)" class="t">Place</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs72', 186)" onmouseover="showTip(event, 'fs72', 186)" class="t">Place</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs10', 187)" onmouseover="showTip(event, 'fs10', 187)" class="t">float</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs74', 188)" onmouseover="showTip(event, 'fs74', 188)" class="t">m</span><span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs21', 189)" onmouseover="showTip(event, 'fs21', 189)" class="t">option</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs81', 191)" onmouseover="showTip(event, 'fs81', 191)" class="t">TryFindDistance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs76', 192)" onmouseover="showTip(event, 'fs76', 192)" class="t">Place</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs76', 193)" onmouseover="showTip(event, 'fs76', 193)" class="t">Place</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs10', 194)" onmouseover="showTip(event, 'fs10', 194)" class="t">float</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs78', 195)" onmouseover="showTip(event, 'fs78', 195)" class="t">m</span><span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs21', 196)" onmouseover="showTip(event, 'fs21', 196)" class="t">option</span>
 
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs78', 190)" onmouseover="showTip(event, 'fs78', 190)" class="t">MetersToFeet</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs10', 191)" onmouseover="showTip(event, 'fs10', 191)" class="t">float</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs74', 192)" onmouseover="showTip(event, 'fs74', 192)" class="t">m</span><span class="o">&gt;</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs10', 193)" onmouseover="showTip(event, 'fs10', 193)" class="t">float</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs75', 194)" onmouseover="showTip(event, 'fs75', 194)" class="t">ft</span><span class="o">&gt;</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs82', 197)" onmouseover="showTip(event, 'fs82', 197)" class="t">MetersToFeet</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs10', 198)" onmouseover="showTip(event, 'fs10', 198)" class="t">float</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs78', 199)" onmouseover="showTip(event, 'fs78', 199)" class="t">m</span><span class="o">&gt;</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs10', 200)" onmouseover="showTip(event, 'fs10', 200)" class="t">float</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs79', 201)" onmouseover="showTip(event, 'fs79', 201)" class="t">ft</span><span class="o">&gt;</span>
 
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs79', 195)" onmouseover="showTip(event, 'fs79', 195)" class="t">Show</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs72', 196)" onmouseover="showTip(event, 'fs72', 196)" class="t">Place</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs72', 197)" onmouseover="showTip(event, 'fs72', 197)" class="t">Place</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs10', 198)" onmouseover="showTip(event, 'fs10', 198)" class="t">float</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs75', 199)" onmouseover="showTip(event, 'fs75', 199)" class="t">ft</span><span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs21', 200)" onmouseover="showTip(event, 'fs21', 200)" class="t">option</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs2', 201)" onmouseover="showTip(event, 'fs2', 201)" class="t">string</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs83', 202)" onmouseover="showTip(event, 'fs83', 202)" class="t">Show</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs76', 203)" onmouseover="showTip(event, 'fs76', 203)" class="t">Place</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs76', 204)" onmouseover="showTip(event, 'fs76', 204)" class="t">Place</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs10', 205)" onmouseover="showTip(event, 'fs10', 205)" class="t">float</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs79', 206)" onmouseover="showTip(event, 'fs79', 206)" class="t">ft</span><span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs21', 207)" onmouseover="showTip(event, 'fs21', 207)" class="t">option</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs2', 208)" onmouseover="showTip(event, 'fs2', 208)" class="t">string</span>
 </code></pre></td>
 </tr>
 </table>
@@ -994,14 +999,22 @@ and finally calculate the distance (in feet).<br/>
 <span class="l">4: </span>
 <span class="l">5: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs111', 430)" onmouseover="showTip(event, 'fs111', 430)" class="f">lookupLocation</span> <span onmouseout="hideTip(event, 'fs112', 431)" onmouseover="showTip(event, 'fs112', 431)" class="i">city</span> <span class="o">=</span>
-    <span onmouseout="hideTip(event, 'fs108', 432)" onmouseover="showTip(event, 'fs108', 432)" class="i">locations</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs113', 433)" onmouseover="showTip(event, 'fs113', 433)" class="t">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs114', 434)" onmouseover="showTip(event, 'fs114', 434)" class="f">find</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs115', 435)" onmouseover="showTip(event, 'fs115', 435)" class="i">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs115', 436)" onmouseover="showTip(event, 'fs115', 436)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs57', 437)" onmouseover="showTip(event, 'fs57', 437)" class="i">Name</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs112', 438)" onmouseover="showTip(event, 'fs112', 438)" class="i">city</span>)
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs113', 437)" onmouseover="showTip(event, 'fs113', 437)" class="f">lookupLocation</span> <span onmouseout="hideTip(event, 'fs114', 438)" onmouseover="showTip(event, 'fs114', 438)" class="i">city</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs110', 439)" onmouseover="showTip(event, 'fs110', 439)" class="i">locations</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs115', 440)" onmouseover="showTip(event, 'fs115', 440)" class="t">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs116', 441)" onmouseover="showTip(event, 'fs116', 441)" class="f">find</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs117', 442)" onmouseover="showTip(event, 'fs117', 442)" class="i">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs117', 443)" onmouseover="showTip(event, 'fs117', 443)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs57', 444)" onmouseover="showTip(event, 'fs57', 444)" class="i">Name</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs114', 445)" onmouseover="showTip(event, 'fs114', 445)" class="i">city</span>)
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs116', 439)" onmouseover="showTip(event, 'fs116', 439)" class="f">lookupLocations</span> (<span onmouseout="hideTip(event, 'fs117', 440)" onmouseover="showTip(event, 'fs117', 440)" class="i">start</span>, <span onmouseout="hideTip(event, 'fs118', 441)" onmouseover="showTip(event, 'fs118', 441)" class="i">dest</span>) <span class="o">=</span>
-    <span onmouseout="hideTip(event, 'fs111', 442)" onmouseover="showTip(event, 'fs111', 442)" class="f">lookupLocation</span> <span onmouseout="hideTip(event, 'fs117', 443)" onmouseover="showTip(event, 'fs117', 443)" class="i">start</span>, <span onmouseout="hideTip(event, 'fs111', 444)" onmouseover="showTip(event, 'fs111', 444)" class="f">lookupLocation</span> <span onmouseout="hideTip(event, 'fs118', 445)" onmouseover="showTip(event, 'fs118', 445)" class="i">dest</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs118', 446)" onmouseover="showTip(event, 'fs118', 446)" class="f">lookupLocations</span> (<span onmouseout="hideTip(event, 'fs119', 447)" onmouseover="showTip(event, 'fs119', 447)" class="i">start</span>, <span onmouseout="hideTip(event, 'fs120', 448)" onmouseover="showTip(event, 'fs120', 448)" class="i">dest</span>) <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs113', 449)" onmouseover="showTip(event, 'fs113', 449)" class="f">lookupLocation</span> <span onmouseout="hideTip(event, 'fs119', 450)" onmouseover="showTip(event, 'fs119', 450)" class="i">start</span>, <span onmouseout="hideTip(event, 'fs113', 451)" onmouseover="showTip(event, 'fs113', 451)" class="f">lookupLocation</span> <span onmouseout="hideTip(event, 'fs120', 452)" onmouseover="showTip(event, 'fs120', 452)" class="i">dest</span>
 </code></pre></td>
 </tr>
 </table>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs113', 453)" onmouseover="showTip(event, 'fs113', 453)" class="f">lookupLocation</span> (<span onmouseout="hideTip(event, 'fs59', 454)" onmouseover="showTip(event, 'fs59', 454)" class="p">City</span> <span class="s">&quot;Houston, TX&quot;</span>)
+</code></pre></td>
+</tr>
+</table>
+<table class="pre"><tr><td><pre><code>{Name = City "Houston, TX";
+ Location = Some FSI_0058+Location;}</code></pre></td></tr></table>
 </section>
 <section >
 <h2>Calculate Distance</h2>
@@ -1013,13 +1026,13 @@ and finally calculate the distance (in feet).<br/>
 <span class="l">6: </span>
 <span class="l">7: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs119', 458)" onmouseover="showTip(event, 'fs119', 458)" class="f">findDistance</span> (<span onmouseout="hideTip(event, 'fs120', 459)" onmouseover="showTip(event, 'fs120', 459)" class="i">start</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs63', 460)" onmouseover="showTip(event, 'fs63', 460)" class="t">Location</span>, <span onmouseout="hideTip(event, 'fs121', 461)" onmouseover="showTip(event, 'fs121', 461)" class="i">dest</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs63', 462)" onmouseover="showTip(event, 'fs63', 462)" class="t">Location</span>) <span class="o">=</span>
-    <span onmouseout="hideTip(event, 'fs122', 463)" onmouseover="showTip(event, 'fs122', 463)" class="t">GeoCoordinate</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs103', 464)" onmouseover="showTip(event, 'fs103', 464)" class="f">distance</span> <span onmouseout="hideTip(event, 'fs120', 465)" onmouseover="showTip(event, 'fs120', 465)" class="i">start</span> <span onmouseout="hideTip(event, 'fs121', 466)" onmouseover="showTip(event, 'fs121', 466)" class="i">dest</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs121', 467)" onmouseover="showTip(event, 'fs121', 467)" class="f">findDistance</span> (<span onmouseout="hideTip(event, 'fs122', 468)" onmouseover="showTip(event, 'fs122', 468)" class="i">start</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs63', 469)" onmouseover="showTip(event, 'fs63', 469)" class="t">Location</span>, <span onmouseout="hideTip(event, 'fs123', 470)" onmouseover="showTip(event, 'fs123', 470)" class="i">dest</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs63', 471)" onmouseover="showTip(event, 'fs63', 471)" class="t">Location</span>) <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs124', 472)" onmouseover="showTip(event, 'fs124', 472)" class="t">GeoCoordinate</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs105', 473)" onmouseover="showTip(event, 'fs105', 473)" class="f">distance</span> <span onmouseout="hideTip(event, 'fs122', 474)" onmouseover="showTip(event, 'fs122', 474)" class="i">start</span> <span onmouseout="hideTip(event, 'fs123', 475)" onmouseover="showTip(event, 'fs123', 475)" class="i">dest</span>
     
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs123', 467)" onmouseover="showTip(event, 'fs123', 467)" class="f">tryFindDistance</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs77', 468)" onmouseover="showTip(event, 'fs77', 468)" class="t">TryFindDistance</span> <span class="o">=</span> <span class="k">function</span>
-    | { <span onmouseout="hideTip(event, 'fs63', 469)" onmouseover="showTip(event, 'fs63', 469)" class="i">Location</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs24', 470)" onmouseover="showTip(event, 'fs24', 470)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs120', 471)" onmouseover="showTip(event, 'fs120', 471)" class="i">start</span> }, { <span onmouseout="hideTip(event, 'fs63', 472)" onmouseover="showTip(event, 'fs63', 472)" class="i">Location</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs24', 473)" onmouseover="showTip(event, 'fs24', 473)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs121', 474)" onmouseover="showTip(event, 'fs121', 474)" class="i">dest</span> } <span class="k">-&gt;</span>
-        <span onmouseout="hideTip(event, 'fs119', 475)" onmouseover="showTip(event, 'fs119', 475)" class="f">findDistance</span> (<span onmouseout="hideTip(event, 'fs120', 476)" onmouseover="showTip(event, 'fs120', 476)" class="i">start</span>, <span onmouseout="hideTip(event, 'fs121', 477)" onmouseover="showTip(event, 'fs121', 477)" class="i">dest</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs24', 478)" onmouseover="showTip(event, 'fs24', 478)" class="p">Some</span>
-    | _, _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs30', 479)" onmouseover="showTip(event, 'fs30', 479)" class="p">None</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs125', 476)" onmouseover="showTip(event, 'fs125', 476)" class="f">tryFindDistance</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs81', 477)" onmouseover="showTip(event, 'fs81', 477)" class="t">TryFindDistance</span> <span class="o">=</span> <span class="k">function</span>
+    | { <span onmouseout="hideTip(event, 'fs63', 478)" onmouseover="showTip(event, 'fs63', 478)" class="i">Location</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs24', 479)" onmouseover="showTip(event, 'fs24', 479)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs122', 480)" onmouseover="showTip(event, 'fs122', 480)" class="i">start</span> }, { <span onmouseout="hideTip(event, 'fs63', 481)" onmouseover="showTip(event, 'fs63', 481)" class="i">Location</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs24', 482)" onmouseover="showTip(event, 'fs24', 482)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs123', 483)" onmouseover="showTip(event, 'fs123', 483)" class="i">dest</span> } <span class="k">-&gt;</span>
+        <span onmouseout="hideTip(event, 'fs121', 484)" onmouseover="showTip(event, 'fs121', 484)" class="f">findDistance</span> (<span onmouseout="hideTip(event, 'fs122', 485)" onmouseover="showTip(event, 'fs122', 485)" class="i">start</span>, <span onmouseout="hideTip(event, 'fs123', 486)" onmouseover="showTip(event, 'fs123', 486)" class="i">dest</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs24', 487)" onmouseover="showTip(event, 'fs24', 487)" class="p">Some</span>
+    | _, _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs30', 488)" onmouseover="showTip(event, 'fs30', 488)" class="p">None</span>
 </code></pre></td>
 </tr>
 </table>
@@ -1035,16 +1048,16 @@ but why bother when it's already available?<br/>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">[&lt;<span onmouseout="hideTip(event, 'fs44', 175)" onmouseover="showTip(event, 'fs44', 175)" class="t">Measure</span>&gt;] <span class="k">type</span> <span onmouseout="hideTip(event, 'fs74', 176)" onmouseover="showTip(event, 'fs74', 176)" class="t">m</span>
-[&lt;<span onmouseout="hideTip(event, 'fs44', 177)" onmouseover="showTip(event, 'fs44', 177)" class="t">Measure</span>&gt;] <span class="k">type</span> <span onmouseout="hideTip(event, 'fs75', 178)" onmouseover="showTip(event, 'fs75', 178)" class="t">ft</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">[&lt;<span onmouseout="hideTip(event, 'fs44', 182)" onmouseover="showTip(event, 'fs44', 182)" class="t">Measure</span>&gt;] <span class="k">type</span> <span onmouseout="hideTip(event, 'fs78', 183)" onmouseover="showTip(event, 'fs78', 183)" class="t">m</span>
+[&lt;<span onmouseout="hideTip(event, 'fs44', 184)" onmouseover="showTip(event, 'fs44', 184)" class="t">Measure</span>&gt;] <span class="k">type</span> <span onmouseout="hideTip(event, 'fs79', 185)" onmouseover="showTip(event, 'fs79', 185)" class="t">ft</span>
 </code></pre></td>
 </tr>
 </table>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs124', 480)" onmouseover="showTip(event, 'fs124', 480)" class="f">metersToFeet</span> (<span onmouseout="hideTip(event, 'fs125', 481)" onmouseover="showTip(event, 'fs125', 481)" class="i">input</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs10', 482)" onmouseover="showTip(event, 'fs10', 482)" class="t">float</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs74', 483)" onmouseover="showTip(event, 'fs74', 483)" class="t">m</span><span class="o">&gt;</span>) <span class="o">=</span>
-    <span onmouseout="hideTip(event, 'fs125', 484)" onmouseover="showTip(event, 'fs125', 484)" class="i">input</span> <span class="o">*</span> <span class="n">3.2808399</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs75', 485)" onmouseover="showTip(event, 'fs75', 485)" class="t">ft</span><span class="o">/</span><span onmouseout="hideTip(event, 'fs74', 486)" onmouseover="showTip(event, 'fs74', 486)" class="t">m</span><span class="o">&gt;</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs126', 489)" onmouseover="showTip(event, 'fs126', 489)" class="f">metersToFeet</span> (<span onmouseout="hideTip(event, 'fs127', 490)" onmouseover="showTip(event, 'fs127', 490)" class="i">input</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs10', 491)" onmouseover="showTip(event, 'fs10', 491)" class="t">float</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs78', 492)" onmouseover="showTip(event, 'fs78', 492)" class="t">m</span><span class="o">&gt;</span>) <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs127', 493)" onmouseover="showTip(event, 'fs127', 493)" class="i">input</span> <span class="o">*</span> <span class="n">3.2808399</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs79', 494)" onmouseover="showTip(event, 'fs79', 494)" class="t">ft</span><span class="o">/</span><span onmouseout="hideTip(event, 'fs78', 495)" onmouseover="showTip(event, 'fs78', 495)" class="t">m</span><span class="o">&gt;</span>
 </code></pre></td>
 </tr>
 </table>
@@ -1061,10 +1074,10 @@ here we create a conversion function to handle the conversion.<br/>
 <span class="l">3: </span>
 <span class="l">4: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs126', 487)" onmouseover="showTip(event, 'fs126', 487)" class="f">workflow</span> <span class="o">=</span>
-    <span onmouseout="hideTip(event, 'fs116', 488)" onmouseover="showTip(event, 'fs116', 488)" class="f">lookupLocations</span>
-    <span class="o">&gt;</span><span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs123', 489)" onmouseover="showTip(event, 'fs123', 489)" class="f">tryFindDistance</span>
-    <span class="o">&gt;</span><span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs127', 490)" onmouseover="showTip(event, 'fs127', 490)" class="t">Option</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs128', 491)" onmouseover="showTip(event, 'fs128', 491)" class="f">map</span> <span onmouseout="hideTip(event, 'fs124', 492)" onmouseover="showTip(event, 'fs124', 492)" class="f">metersToFeet</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs128', 496)" onmouseover="showTip(event, 'fs128', 496)" class="f">workflow</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs118', 497)" onmouseover="showTip(event, 'fs118', 497)" class="f">lookupLocations</span>
+    <span class="o">&gt;</span><span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs125', 498)" onmouseover="showTip(event, 'fs125', 498)" class="f">tryFindDistance</span>
+    <span class="o">&gt;</span><span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs129', 499)" onmouseover="showTip(event, 'fs129', 499)" class="t">Option</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs130', 500)" onmouseover="showTip(event, 'fs130', 500)" class="f">map</span> <span onmouseout="hideTip(event, 'fs126', 501)" onmouseover="showTip(event, 'fs126', 501)" class="f">metersToFeet</span>
 </code></pre></td>
 </tr>
 </table>
@@ -1130,6 +1143,12 @@ what we have available today.<br/>
 </section>
 <section >
 <h1>Questions?</h1>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs113', 455)" onmouseover="showTip(event, 'fs113', 455)" class="f">lookupLocation</span> (<span onmouseout="hideTip(event, 'fs59', 456)" onmouseover="showTip(event, 'fs59', 456)" class="p">City</span> <span class="s">&quot;Houston, TX&quot;</span>)
+</code></pre></td>
+</tr>
+</table>
 </section>
 
 
