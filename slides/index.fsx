@@ -77,17 +77,16 @@ module Alias =
 
 *)
 
-module SingleCase =
-    type City = City of string
+type SingleCaseCity = CityName of string
 
 (** Extract the value via pattern matching: *)
-    let city = City "Houston, TX"
-    let cityName (City name) = name
-(*** define-value: result ***)
-    let result = cityName city
+let city = CityName "Houston, TX"
+let cityName (CityName name) = name
+(*** define-output: result ***)
+cityName city
 
 (** Value of result: *)
-(*** include-value: result ***)
+(*** include-it: result ***)
 
 (**
 ***
@@ -720,9 +719,9 @@ let degLatResult = degreesLatitude 1.
 let degLngResult = degreesLongitude 1.
 
 module UnitsOfMeasure =
-    open SingleCase
-
 (*** define: location2 ***)
+    type City = SingleCaseCity
+
     type Location = {
         Latitude : float<degLat>
         Longitude : float<degLng>
