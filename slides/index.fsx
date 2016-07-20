@@ -670,7 +670,7 @@ module ExtendedExample =
 
 ***
 
-## 2. Declare your app's state machine
+## 2. Types define data flow
 
 ' Once you have the functions to support each step of your
 ' program, it's a simple matter of applying composition to
