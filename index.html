@@ -178,13 +178,13 @@
 <div class="tip" id="fs130">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; option:&#39;T option -&gt; &#39;U option<br /><br />Full name: Microsoft.FSharp.Core.Option.map</div>
 <div class="tip" id="fs131">val serializePlace : _arg1:Place -&gt; string<br /><br />Full name: Index.serializePlace</div>
 <div class="tip" id="fs132">val loc : Location</div>
-<div class="tip" id="fs133">val serializeResult : place1:Place -&gt; place2:Place -&gt; distance:float&lt;ft&gt; option -&gt; string<br /><br />Full name: Index.serializeResult</div>
+<div class="tip" id="fs133">val serializeResult : place1:Place -&gt; place2:Place -&gt; distance:float&lt;&#39;u&gt; option -&gt; string<br /><br />Full name: Index.serializeResult</div>
 <div class="tip" id="fs134">val place1 : Place</div>
 <div class="tip" id="fs135">val place2 : Place</div>
-<div class="tip" id="fs136">val distance : float&lt;ft&gt; option</div>
+<div class="tip" id="fs136">val distance : float&lt;&#39;u&gt; option</div>
 <div class="tip" id="fs137">val place1&#39; : string</div>
 <div class="tip" id="fs138">val place2&#39; : string</div>
-<div class="tip" id="fs139">val d : float&lt;ft&gt;</div>
+<div class="tip" id="fs139">val d : float&lt;&#39;u&gt;</div>
 <div class="tip" id="fs140">val receiveInput : start:City * dest:City -&gt; string<br /><br />Full name: Index.receiveInput</div>
 <div class="tip" id="fs141">val start&#39; : Place</div>
 <div class="tip" id="fs142">val dest&#39; : Place</div>
@@ -194,15 +194,16 @@
 <div class="tip" id="fs146">val distance : float&lt;m&gt;</div>
 <div class="tip" id="fs147">val showPlacesWithDistanceInMeters : start:Place * dest:Place * distance:float&lt;m&gt; -&gt; string<br /><br />Full name: Index.showPlacesWithDistanceInMeters</div>
 <div class="tip" id="fs148">val showPlaces : start:Place * dest:Place * distance:float&lt;ft&gt; option -&gt; string<br /><br />Full name: Index.showPlaces</div>
-<div class="tip" id="fs149">type Stage =<br />&#160;&#160;| AwaitingInput<br />&#160;&#160;| InputReceived of start: City * dest: City<br />&#160;&#160;| Located of start: Place * dest: Place<br />&#160;&#160;| Calculated of Place * Place * float&lt;m&gt; option<br />&#160;&#160;| Show of Place * Place * float&lt;ft&gt; option<br /><br />Full name: Index.Stage</div>
-<div class="tip" id="fs150">union case Stage.AwaitingInput: Stage</div>
-<div class="tip" id="fs151">union case Stage.InputReceived: start: City * dest: City -&gt; Stage</div>
-<div class="tip" id="fs152">union case Stage.Located: start: Place * dest: Place -&gt; Stage</div>
-<div class="tip" id="fs153">union case Stage.Calculated: Place * Place * float&lt;m&gt; option -&gt; Stage</div>
-<div class="tip" id="fs154">Multiple items<br />union case Stage.Show: Place * Place * float&lt;ft&gt; option -&gt; Stage<br /><br />--------------------<br />type Show = Place * Place * float&lt;ft&gt; option -&gt; string<br /><br />Full name: Index.Show</div>
-<div class="tip" id="fs155">type RunWorkflow = Stage -&gt; string<br /><br />Full name: Index.RunWorkflow</div>
-<div class="tip" id="fs156">val runWorkflow : _arg1:Stage -&gt; string<br /><br />Full name: Index.runWorkflow</div>
-<div class="tip" id="fs157">val distance : float&lt;m&gt; option</div>
+<div class="tip" id="fs149">val distance : float&lt;ft&gt; option</div>
+<div class="tip" id="fs150">type Stage =<br />&#160;&#160;| AwaitingInput<br />&#160;&#160;| InputReceived of start: City * dest: City<br />&#160;&#160;| Located of start: Place * dest: Place<br />&#160;&#160;| Calculated of Place * Place * float&lt;m&gt; option<br />&#160;&#160;| Show of Place * Place * float&lt;ft&gt; option<br /><br />Full name: Index.Stage</div>
+<div class="tip" id="fs151">union case Stage.AwaitingInput: Stage</div>
+<div class="tip" id="fs152">union case Stage.InputReceived: start: City * dest: City -&gt; Stage</div>
+<div class="tip" id="fs153">union case Stage.Located: start: Place * dest: Place -&gt; Stage</div>
+<div class="tip" id="fs154">union case Stage.Calculated: Place * Place * float&lt;m&gt; option -&gt; Stage</div>
+<div class="tip" id="fs155">Multiple items<br />union case Stage.Show: Place * Place * float&lt;ft&gt; option -&gt; Stage<br /><br />--------------------<br />type Show = Place * Place * float&lt;ft&gt; option -&gt; string<br /><br />Full name: Index.Show</div>
+<div class="tip" id="fs156">type RunWorkflow = Stage -&gt; string<br /><br />Full name: Index.RunWorkflow</div>
+<div class="tip" id="fs157">val runWorkflow : _arg1:Stage -&gt; string<br /><br />Full name: Index.runWorkflow</div>
+<div class="tip" id="fs158">val distance : float&lt;m&gt; option</div>
 
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
