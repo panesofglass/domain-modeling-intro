@@ -640,6 +640,8 @@ module ExtendedExample =
 *)
 
 (*** include: distance-calculator-pipeline ***)
+(*** include: run-distance-workflow ***)
+(*** include-it: run-distance-workflow-result ***)
 
 (**
 
@@ -833,7 +835,7 @@ lookupLocation (City "Conroe, TX")
 lookupLocation (City "The Woodlands, TX")
 lookupLocation (City "San Mateo, CA")
 lookupLocation (City "Adelaide, AUS")
-lookupLocation (City "Atlantis, TX")
+lookupLocation (City "Atlantis")
 
 (*** define: find-distance ***)
 let findDistance (start: Location, dest: Location) =
@@ -860,6 +862,12 @@ let workflow =
 |> tryFindDistance
 |> Option.map metersToFeet
 
+(*** define: run-distance-workflow ***)
+workflow (City "Houston, TX", City "San Mateo, CA")
+
+(*** define-output: run-distance-workflow-result ***)
+workflow (City "Houston, TX", City "San Mateo, CA")
+
 (*** define: serialize ***)
 let serializePlace = function
     | { Place.Name = City name; Location = Some loc } ->
@@ -871,7 +879,7 @@ let serializeResult place1 place2 distance =
     let place2' = serializePlace place2
     match distance with
     | Some d ->
-        sprintf """{"start":%s,"dest":%s,"distance":%f}""" place1' place2' d
+        sprintf """{"start":%s,"dest":%s,"distance":%f}""" place1' place2' (d/1.<ft>)
     | None -> sprintf """{"start":%s,"dest":%s}""" place1' place2'
 
 (*** define: distance-workflow ***)
@@ -914,4 +922,3 @@ let rec runWorkflow = function
 
 (*** hide ***)
 runWorkflow (InputReceived(City "Houston, TX", City "San Mateo, CA"))
-
