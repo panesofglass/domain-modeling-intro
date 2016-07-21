@@ -748,7 +748,7 @@ type Location =
         if -90.<degLat> > lat || lat > 90.<degLat> then
             invalidArg "lat"
                 "Latitude must be within the range -90 to 90."
-        elif -180.<degLng> > lng && lng > 180.<degLng> then
+        elif -180.<degLng> > lng || lng > 180.<degLng> then
             invalidArg "lng"
                 "Longitude must be within the range -180 to 180."
         else { latitude = lat; longitude = lng }
@@ -847,7 +847,7 @@ let tryFindDistance : TryFindDistance = function
 
 (*** define: meters-to-feet ***)
 let metersToFeet (input: float<m>) =
-    input * 3.2808399<ft/m>
+    input / 0.3048<m/ft>
 
 (*** define: distance-calculator-pipeline ***)
 let workflow =
